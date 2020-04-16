@@ -1,0 +1,19 @@
+{
+    "icon": "fas-snowplow",
+    "fields": [
+        "name",
+        "oneway",
+        "maxspeed",
+        "file"
+    ],
+    "tags": {
+        "military": "tank"
+    },
+    "geometry": [
+        "line"
+    ],
+    "terms": [
+        "tank"
+    ],
+    "name": "Tank Pathway"
+}

@@ -1,0 +1,21 @@
+{
+    "icon": "fas-fighter-jet",
+    "fields": [
+        "name",
+        "maxspeed",
+        "oneway"
+    ],
+    "geometry": [
+        "line",
+        "area"
+    ],
+    "tags": {
+        "military": "dronecam"
+    },
+    "terms": [
+        "drone",
+        "surveillance",
+        "camera"
+    ],
+    "name": "Drone Camera"
+}

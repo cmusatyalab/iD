@@ -1,0 +1,19 @@
+{
+    "icon": "fas-hiking",
+    "fields": [
+        "name",
+        "oneway",
+        "maxspeed",
+        "file"
+    ],
+    "tags": {
+        "military": "infantry"
+    },
+    "geometry": [
+        "line"
+    ],
+    "terms": [
+        "infantry"
+    ],
+    "name": "Infantry Pathway"
+}

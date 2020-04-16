@@ -1,0 +1,12 @@
+{
+    "key": "file",
+    "type": "url",
+    "icon": "document",
+    "placeholder": "video.mp4",
+    "label": "Associated Video File",
+    "terms": [
+        "file",
+        "video",
+        "mp4"
+    ]
+}

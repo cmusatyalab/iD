@@ -164,6 +164,40 @@ path.stroke.tag-military,
 path.stroke.tag-landuse-military {
     stroke: rgb(214, 136, 26);
 }
+
+path.stroke.tag-military-tank {
+    stroke: rgb(140, 208, 95);
+    stroke-width: 8;
+}
+
+path.stroke.tag-military-infantry {
+    stroke: rgb(47, 74, 38);
+    stroke-width: 4;
+    stroke-dasharray: 3, 9;
+}
+
+
+path.stroke.tag-military-reconcam {
+    stroke: rgb(214, 136, 26);
+    stroke-width: 6;
+    stroke-linecap: circle;
+    stroke-dasharray: 4;
+
+}
+
+path.stroke.tag-military-dronecam {
+    stroke: rgb(214, 136, 26);
+    stroke-width: 6;
+    stroke-linecap: circle;
+    stroke-dasharray: 1, 2, 3, 2;
+
+}
+path.fill.tag-military-reconcam {
+    stroke: rgba(214, 136, 26, 0.3);
+    fill: rgba(214, 136, 26, 0.3);
+}
+
+
 path.fill.tag-landuse-retail,
 path.fill.tag-landuse-commercial,
 path.fill.tag-landuse-landfill,
