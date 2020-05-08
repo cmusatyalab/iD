@@ -30,6 +30,7 @@ export function coreFileFetcher() {
     'phone_formats': 'data/phone_formats.min.json',
     'qa_data': 'data/qa_data.min.json',
     'shortcuts': 'data/shortcuts.min.json',
+    'simtime': 'data/simtime.json',
     'territory_languages': 'data/territory_languages.min.json',
     'wmf_sitematrix': 'https://cdn.jsdelivr.net/npm/wmf-sitematrix@0.1/wikipedia.min.json'
   };
@@ -61,6 +62,32 @@ export function coreFileFetcher() {
             throw new Error(`No data loaded for "${which}"`);
           }
           _cachedData[which] = result;
+          return result;
+        })
+        .catch(err => {
+          delete _inflight[url];
+          throw err;
+        });
+    }
+
+    return prom;
+  };
+
+  _this.getNoCache = (which) => {
+    const file = _fileMap[which];
+    const url = file && _this.asset(file);
+    if (!url) {
+      return Promise.reject(`Unknown data file for "${which}"`);
+    }
+
+    let prom = _inflight[url];
+    if (!prom) {
+      _inflight[url] = prom = d3_json(url)
+        .then(result => {
+          delete _inflight[url];
+          if (!result) {
+            throw new Error(`No data loaded for "${which}"`);
+          }
           return result;
         })
         .catch(err => {
