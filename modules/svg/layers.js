@@ -15,6 +15,7 @@ import { svgOpenstreetcamImages } from './openstreetcam_images';
 import { svgOsm } from './osm';
 import { svgNotes } from './notes';
 import { svgTouch } from './touch';
+import { svgMarkup } from './markup';
 import { utilArrayDifference, utilRebind } from '../util';
 import { utilGetDimensions, utilSetDimensions } from '../util/dimensions';
 
@@ -36,7 +37,8 @@ export function svgLayers(projection, context) {
         { id: 'openstreetcam', layer: svgOpenstreetcamImages(projection, context, dispatch) },
         { id: 'debug', layer: svgDebug(projection, context, dispatch) },
         { id: 'geolocate', layer: svgGeolocate(projection, context, dispatch) },
-        { id: 'touch', layer: svgTouch(projection, context, dispatch) }
+        { id: 'touch', layer: svgTouch(projection, context, dispatch) },
+        { id: 'markup', layer: svgMarkup(projection, context, dispatch) }
     ];
 
 

@@ -5,7 +5,14 @@ import { t } from '../../core/localizer';
 import { svgIcon } from '../../svg';
 import { fileFetcher } from '../../core/file_fetcher';
 import { uiTooltip } from '../tooltip';
-
+import { osmNote, osmNode, osmWay } from '../../osm';
+import { geoSphericalDistance } from '../../geo';
+import { actionAddEntity } from '../../actions/add_entity';
+import { actionDeleteNode } from '../../actions/delete_node';
+import { actionMoveNode } from '../../actions/move_node';
+import { services } from '../../services';
+import { uiPresetIcon } from '../preset_icon';
+import { utilGetAllNodes } from '../../util/util'
 
 export function uiToolSimTime(context) {
 
@@ -16,12 +23,7 @@ export function uiToolSimTime(context) {
 
     var button = null;
     var tooltipBehavior = null;
-    var _elapsedTime = -1;
-
-
-    function bgColor() {
-        return d3_interpolateRgb('#fff', '#ff8', '#ff8');
-    }
+    var _elapsedTime = 0;
 
     function isDisabled() {
         return false;
@@ -32,6 +34,14 @@ export function uiToolSimTime(context) {
             fileFetcher.getNoCache('simtime')
                 .then(function (d) { _elapsedTime = d.time; }) //d['time']
                 .catch(function () { /* ignore */ });
+            context.simtime = _elapsedTime;
+            if (_elapsedTime > 0) {
+                //cause refresh
+                context.layers().layer('markup').enabled(false);
+                context.layers().layer('markup').enabled(true);
+            } else if (_elapsedTime == 0) {
+                context.layers().layer('markup').enabled(false);
+            }
 
             if (tooltipBehavior) {
                 tooltipBehavior
@@ -47,7 +57,6 @@ export function uiToolSimTime(context) {
             }
 
 
-            //_timer.stop();
             return true;
         }, 500);
 

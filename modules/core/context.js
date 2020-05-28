@@ -28,6 +28,7 @@ export function coreContext() {
 
   context.version = '2.17.2';
   context.privacyVersion = '20200407';
+  context.simtime = 0;
 
   // iD will alter the hash so cache the parameters intended to setup the session
   context.initialHashParams = window.location.hash ? utilStringQs(window.location.hash) : {};
