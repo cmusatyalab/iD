@@ -166,12 +166,12 @@ path.stroke.tag-landuse-military {
 }
 
 path.stroke.tag-military-tank {
-    stroke: rgb(140, 208, 95);
+    stroke: rgb(75, 187, 47);
     stroke-width: 8;
 }
 
 path.stroke.tag-military-infantry {
-    stroke: rgb(47, 74, 38);
+    stroke: rgb(168, 102, 25);
     stroke-width: 4;
     stroke-dasharray: 3, 9;
 }
